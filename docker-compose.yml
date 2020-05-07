@@ -1,0 +1,23 @@
+db:
+  image: bh0na/gnuhealth-postgres
+  container_name: gnuhealth-postgres
+  ports: 
+    - "5432:5432"
+  environment:
+    - POSTGRES_USER=gnuhealth
+    - POSTGRES_PASSWORD=jkUbZGvFNeugk
+    - POSTGRES_DB=gnuhealth
+  
+
+tryton:
+  image: bh0na/tryton-server-gnuhealth
+  container_name: tryton-server-gnuhealth
+  environment:
+    - DB_USER=gnuhealth
+    - DB_PASSWORD=jkUbZGvFNeugk
+    - DB_HOSTNAME=db_1
+    - DB_PORT=5432
+  ports:
+    - "8000:8000"
+  links:
+    - db
