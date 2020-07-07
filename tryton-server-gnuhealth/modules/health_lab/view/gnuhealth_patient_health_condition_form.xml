@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+<data>
+    <xpath expr="/form/group[@id=&quot;group_related_evaluations&quot;]" position="before">
+        <group string="Laboratory" colspan="4" id="group_lab_info">
+            <label name="lab_confirmed"/>
+            <field name="lab_confirmed"/>
+            <label name="lab_test"/>
+            <field name="lab_test"/>
+        </group>
+    </xpath>
+</data>

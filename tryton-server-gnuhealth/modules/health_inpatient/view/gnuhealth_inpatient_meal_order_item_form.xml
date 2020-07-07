@@ -1,0 +1,7 @@
+<?xml version="1.0"?>
+<form>
+    <label name="meal"/>
+    <field name="meal"/>
+    <label name="remarks"/>
+    <field name="remarks"/>
+</form>

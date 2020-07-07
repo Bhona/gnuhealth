@@ -29,12 +29,14 @@ WORKDIR /home/gnuhealth
 
 #Get GNUHealth
 RUN mkdir $HOME/gnuhealth-latest
-RUN set -o pipefail && wget -qO- https://ftp.gnu.org/gnu/health/gnuhealth-latest.tar.gz | tar xzf - --directory gnuhealth-latest --strip-components=1
+# RUN set -o pipefail && wget -qO- https://ftp.gnu.org/gnu/health/gnuhealth-latest.tar.gz | tar xzf - --directory gnuhealth-latest --strip-components=1
+COPY gnuhealth-latest $HOME/gnuhealth-latest
 WORKDIR $HOME/gnuhealth-latest
-RUN set -o pipefail && wget -qO- https://ftp.gnu.org/gnu/health/gnuhealth-setup-latest.tar.gz | tar -xzvf -
+RUN sudo chown -R gnuhealth $HOME/gnuhealth-latest
+#RUN set -o pipefail && wget -qO- https://ftp.gnu.org/gnu/health/gnuhealth-setup-latest.tar.gz | tar -xzvf -
 
 #Fix werkzeug version to prevent "No module named 'werkzeug.contrib'"
-RUN sed -i -E "s/werkzeug/\werkzeug==0.16.1/" gnuhealth-setup
+#RUN sed -i -E "s/werkzeug/\werkzeug==0.16.1/" gnuhealth-setup
 
 #Install GNUHealth
 COPY gnuhealth-setup $HOME/gnuhealth-latest/gnuhealth-setup
@@ -44,6 +46,7 @@ WORKDIR $HOME
 
 #Install SAO Web Client
 RUN git clone https://github.com/tryton/sao.git -b 5.0
+# RUN git clone https://github.com/Bhona/sao.git
 #RUN hg clone http://hg.tryton.org/sao sao
 WORKDIR $HOME/sao
 RUN npm install grunt-po2json --save-dev
@@ -53,17 +56,17 @@ RUN npm install --production
 RUN grunt
 WORKDIR $HOME
 
-# Add SAO Webroot to trytond.conf
+# # Add SAO Webroot to trytond.conf
 RUN sed -i '/^\[web\]/a\root = /home/gnuhealth/sao/' $HOME/gnuhealth/tryton/server/config/trytond.conf
 
-# Listen on 0.0.0.0 to expose outside container
+# # Listen on 0.0.0.0 to expose outside container
 RUN sed -E -i "s/^listen = \*:8000/listen = 0.0.0.0:8000/g" $HOME/gnuhealth/tryton/server/config/trytond.conf
 RUN sed -E -i "s/^listen = \*:8080/listen = 0.0.0.0:8080/g" $HOME/gnuhealth/tryton/server/config/trytond.conf
 
-# Output logs
-#RUN ln -sf /dev/stdout /home/gnuhealth/gnuhealth/logs/gnuhealth.log
+# # Output logs
+# #RUN ln -sf /dev/stdout /home/gnuhealth/gnuhealth/logs/gnuhealth.log
 
-EXPOSE 8000
+# EXPOSE 8000
 #Copy custom gnuhealthrc which contains Docker ENV Variables.
 COPY gnuhealthrc $HOME/.gnuhealthrc
 COPY gnuhealth_log.conf $HOME/gnuhealth/tryton/server/config/gnuhealth_log.conf

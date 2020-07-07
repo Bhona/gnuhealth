@@ -1,0 +1,14 @@
+[Unit]
+Description=GNU Health Server
+After=network.target
+
+[Service]
+Type=simple
+User=gnuhealth
+WorkingDirectory=/home/gnuhealth
+ExecStart=/home/gnuhealth/start_gnuhealth.sh
+Restart=on-abort
+
+[Install]
+WantedBy=multi-user.target
+

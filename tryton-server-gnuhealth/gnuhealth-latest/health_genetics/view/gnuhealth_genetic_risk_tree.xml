@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+<tree editable="top">
+    <field name="patient"/>
+    <field name="disease_gene" expand="1"/>
+    <field name="natural_variant" expand="1"/>
+    <field name="variant_phenotype" expand="1"/>
+    <field name="onset" expand="1"/>
+    <field name="notes" expand="1"/>
+    <field name="healthprof"/>
+    <field name="institution"/>    
+</tree>

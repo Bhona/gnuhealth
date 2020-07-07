@@ -1,0 +1,90 @@
+Metadata-Version: 1.2
+Name: trytond_account
+Version: 5.0.13
+Summary: Tryton module for accounting
+Home-page: http://www.tryton.org/
+Author: Tryton
+Author-email: issue_tracker@tryton.org
+License: GPL-3
+Download-URL: http://downloads.tryton.org/5.0/
+Description: trytond_account
+        ===============
+        
+        The account module of the Tryton application platform.
+        
+        The module generates minimal chart of accounts for many languages. The XML
+        files for each language are generated from the same original XML file thanks to
+        the localize.xsl XSLT script. The script will produce on the standard output
+        the desired XML file. The XSLT script can be launched with the following
+        command::
+        
+            xsltproc --stringparam lang <lang> localize.xsl minimal_chart.xml
+        
+        where ``lang`` is one of the languages.
+        
+        Installing
+        ----------
+        
+        See INSTALL
+        
+        Support
+        -------
+        
+        If you encounter any problems with Tryton, please don't hesitate to ask
+        questions on the Tryton bug tracker, mailing list, wiki or IRC channel:
+        
+          http://bugs.tryton.org/
+          http://groups.tryton.org/
+          http://wiki.tryton.org/
+          irc://irc.freenode.net/tryton
+        
+        License
+        -------
+        
+        See LICENSE
+        
+        Copyright
+        ---------
+        
+        See COPYRIGHT
+        
+        
+        For more information please visit the Tryton web site:
+        
+          http://www.tryton.org/
+        
+Keywords: tryton account
+Platform: UNKNOWN
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Environment :: Plugins
+Classifier: Framework :: Tryton
+Classifier: Intended Audience :: Developers
+Classifier: Intended Audience :: Financial and Insurance Industry
+Classifier: Intended Audience :: Legal Industry
+Classifier: License :: OSI Approved :: GNU General Public License v3 or later (GPLv3+)
+Classifier: Natural Language :: Bulgarian
+Classifier: Natural Language :: Catalan
+Classifier: Natural Language :: Chinese (Simplified)
+Classifier: Natural Language :: Czech
+Classifier: Natural Language :: Dutch
+Classifier: Natural Language :: English
+Classifier: Natural Language :: French
+Classifier: Natural Language :: German
+Classifier: Natural Language :: Hungarian
+Classifier: Natural Language :: Italian
+Classifier: Natural Language :: Persian
+Classifier: Natural Language :: Polish
+Classifier: Natural Language :: Portuguese (Brazilian)
+Classifier: Natural Language :: Russian
+Classifier: Natural Language :: Slovenian
+Classifier: Natural Language :: Spanish
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 3.4
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: Implementation :: CPython
+Classifier: Programming Language :: Python :: Implementation :: PyPy
+Classifier: Topic :: Office/Business
+Classifier: Topic :: Office/Business :: Financial :: Accounting
+Requires-Python: >=3.4

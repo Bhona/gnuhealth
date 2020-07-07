@@ -1,0 +1,171 @@
+#
+msgid ""
+msgstr "Content-Type: text/plain; charset=utf-8\n"
+
+msgctxt "field:gnuhealth.appointment,qr:"
+msgid "QR Code"
+msgstr ""
+
+msgctxt "field:gnuhealth.lab,bar:"
+msgid "Bar Code39"
+msgstr ""
+
+msgctxt "field:gnuhealth.lab,qr:"
+msgid "QR Code"
+msgstr ""
+
+msgctxt "field:gnuhealth.newborn,qr:"
+msgid "QR Code"
+msgstr ""
+
+msgctxt "field:gnuhealth.patient,qr:"
+msgid "QR Code"
+msgstr ""
+
+msgctxt "model:ir.action,name:report_appointment_qrcode"
+msgid "Appointment QRCODE"
+msgstr ""
+
+msgctxt "model:ir.action,name:report_labtest_barcode39"
+msgid "Code39 barcode label"
+msgstr ""
+
+msgctxt "model:ir.action,name:report_labtest_qrcode"
+msgid "Test Labels"
+msgstr ""
+
+msgctxt "model:ir.action,name:report_newborn_qrcard"
+msgid "Newborn ID - QR"
+msgstr ""
+
+msgctxt "model:ir.action,name:report_patient_qrcard"
+msgid "ID Cards - QR"
+msgstr ""
+
+msgctxt "report:appointment.qrcodel:"
+msgid ":"
+msgstr ""
+
+msgctxt "report:appointment.qrcodel:"
+msgid "Appointment #"
+msgstr ""
+
+msgctxt "report:appointment.qrcodel:"
+msgid "Health Professional"
+msgstr ""
+
+msgctxt "report:appointment.qrcodel:"
+msgid "Institution"
+msgstr ""
+
+msgctxt "report:appointment.qrcodel:"
+msgid "Instructions / Notes"
+msgstr ""
+
+msgctxt "report:appointment.qrcodel:"
+msgid "PUID :"
+msgstr ""
+
+msgctxt "report:appointment.qrcodel:"
+msgid "Patient"
+msgstr ""
+
+msgctxt "report:appointment.qrcodel:"
+msgid "Specialty"
+msgstr ""
+
+msgctxt "report:labtest.qrlabel:"
+msgid "Cap label"
+msgstr ""
+
+msgctxt "report:labtest.qrlabel:"
+msgid "Extraction date :"
+msgstr ""
+
+msgctxt "report:labtest.qrlabel:"
+msgid "ID:"
+msgstr ""
+
+msgctxt "report:labtest.qrlabel:"
+msgid "Patient:"
+msgstr ""
+
+msgctxt "report:labtest.qrlabel:"
+msgid "Req by:"
+msgstr ""
+
+msgctxt "report:labtest.qrlabel:"
+msgid "Test:"
+msgstr ""
+
+msgctxt "report:newborn.qrcard:"
+msgid ","
+msgstr ""
+
+msgctxt "report:newborn.qrcard:"
+msgid ":"
+msgstr ""
+
+msgctxt "report:newborn.qrcard:"
+msgid "DoB"
+msgstr ""
+
+msgctxt "report:newborn.qrcard:"
+msgid "Female"
+msgstr ""
+
+msgctxt "report:newborn.qrcard:"
+msgid "ID"
+msgstr ""
+
+msgctxt "report:newborn.qrcard:"
+msgid "Male"
+msgstr ""
+
+msgctxt "report:newborn.qrcard:"
+msgid "Mother"
+msgstr ""
+
+msgctxt "report:newborn.qrcard:"
+msgid "Mother's"
+msgstr ""
+
+msgctxt "report:newborn.qrcard:"
+msgid "Name"
+msgstr ""
+
+msgctxt "report:newborn.qrcard:"
+msgid "PU"
+msgstr ""
+
+msgctxt "report:newborn.qrcard:"
+msgid "and"
+msgstr ""
+
+msgctxt "report:newborn.qrcard:"
+msgid "cm"
+msgstr ""
+
+msgctxt "report:newborn.qrcard:"
+msgid "gr"
+msgstr ""
+
+msgctxt "report:patient.qrcard:"
+msgid ":"
+msgstr ""
+
+msgctxt "report:patient.qrcard:"
+msgid "Blood Type"
+msgstr ""
+
+msgctxt "report:patient.qrcard:"
+msgid "DoB:"
+msgstr ""
+
+msgctxt "report:patient.qrcard:"
+msgid "ID"
+msgstr ""
+
+msgctxt "report:patient.qrcard:"
+msgid "Name"
+msgstr ""

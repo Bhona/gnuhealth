@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<tryton>
+    <data>
+        <record model="gnuhealth.command" id="sur">
+            <field name="name">sur</field>
+            <field name="model">gnuhealth.surgery</field>
+            <field name="label">Surgeries</field>
+            <field name="description">Surgeries</field>
+            <field name="internal">False</field>
+        </record>
+
+        <record model="gnuhealth.command" id="rcri">
+            <field name="name">rcri</field>
+            <field name="model">gnuhealth.rcri</field>
+            <field name="label">RCRI</field>
+            <field name="description">Revised Cardiac Risk Index scores</field>
+            <field name="internal">False</field>
+        </record>
+    </data>
+</tryton>

@@ -1,0 +1,871 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-10-23 01:29+0000\n"
+"PO-Revision-Date: 2019-10-27 10:49+0800\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: zh_CN\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Translate Toolkit 2.2.5\n"
+"X-Pootle-Path: /zh_CN/GNUHEALTH/health_nursing/locale/zh_CN.po\n"
+"X-Pootle-Revision: 43758\n"
+
+msgctxt "error:gnuhealth.patient.ambulatory_care:"
+msgid "No health professional associated to this user"
+msgstr "此登录用户没有与某个健康专家关联"
+
+msgctxt "error:gnuhealth.patient.rounding:"
+msgid "No health professional associated to this user"
+msgstr "此登录用户没有与某个健康专家关联"
+
+msgctxt "field:gnuhealth.ambulatory_care_procedure,comments:"
+msgid "Comments"
+msgstr "说明"
+
+msgctxt "field:gnuhealth.ambulatory_care_procedure,create_date:"
+msgid "Create Date"
+msgstr "创建日期"
+
+msgctxt "field:gnuhealth.ambulatory_care_procedure,create_uid:"
+msgid "Create User"
+msgstr "创建用户"
+
+msgctxt "field:gnuhealth.ambulatory_care_procedure,id:"
+msgid "ID"
+msgstr "ID"
+
+msgctxt "field:gnuhealth.ambulatory_care_procedure,name:"
+msgid "Session"
+msgstr "轮次"
+
+msgctxt "field:gnuhealth.ambulatory_care_procedure,procedure:"
+msgid "Code"
+msgstr "护理操作代码"
+
+msgctxt "field:gnuhealth.ambulatory_care_procedure,rec_name:"
+msgid "Record Name"
+msgstr "记录名称"
+
+msgctxt "field:gnuhealth.ambulatory_care_procedure,write_date:"
+msgid "Write Date"
+msgstr "写入日期"
+
+msgctxt "field:gnuhealth.ambulatory_care_procedure,write_uid:"
+msgid "Write User"
+msgstr "写入用户"
+
+msgctxt "field:gnuhealth.patient.ambulatory_care,base_condition:"
+msgid "Condition"
+msgstr "疾病"
+
+msgctxt "field:gnuhealth.patient.ambulatory_care,bpm:"
+msgid "Heart Rate"
+msgstr "心率"
+
+msgctxt "field:gnuhealth.patient.ambulatory_care,create_date:"
+msgid "Create Date"
+msgstr "创建日期"
+
+msgctxt "field:gnuhealth.patient.ambulatory_care,create_uid:"
+msgid "Create User"
+msgstr "创建用户"
+
+msgctxt "field:gnuhealth.patient.ambulatory_care,diastolic:"
+msgid "Diastolic Pressure"
+msgstr "舒张压"
+
+msgctxt "field:gnuhealth.patient.ambulatory_care,evaluation:"
+msgid "Related Evaluation"
+msgstr "相关评估"
+
+msgctxt "field:gnuhealth.patient.ambulatory_care,evolution:"
+msgid "Evolution"
+msgstr "进展情况"
+
+msgctxt "field:gnuhealth.patient.ambulatory_care,glycemia:"
+msgid "Glycemia"
+msgstr "血糖"
+
+msgctxt "field:gnuhealth.patient.ambulatory_care,health_professional:"
+msgid "Health Professional"
+msgstr "健康专家"
+
+msgctxt "field:gnuhealth.patient.ambulatory_care,id:"
+msgid "ID"
+msgstr "ID"
+
+msgctxt "field:gnuhealth.patient.ambulatory_care,name:"
+msgid "ID"
+msgstr "ID"
+
+msgctxt "field:gnuhealth.patient.ambulatory_care,next_session:"
+msgid "Next Session"
+msgstr "下一轮"
+
+msgctxt "field:gnuhealth.patient.ambulatory_care,ordering_professional:"
+msgid "Requested by"
+msgstr "申请人"
+
+msgctxt "field:gnuhealth.patient.ambulatory_care,osat:"
+msgid "Oxygen Saturation"
+msgstr "血氧饱和度"
+
+msgctxt "field:gnuhealth.patient.ambulatory_care,patient:"
+msgid "Patient"
+msgstr "患者"
+
+msgctxt "field:gnuhealth.patient.ambulatory_care,procedures:"
+msgid "Procedures"
+msgstr "护理操作"
+
+msgctxt "field:gnuhealth.patient.ambulatory_care,rec_name:"
+msgid "Record Name"
+msgstr "记录名称"
+
+msgctxt "field:gnuhealth.patient.ambulatory_care,respiratory_rate:"
+msgid "Respiratory Rate"
+msgstr "呼吸频率"
+
+msgctxt "field:gnuhealth.patient.ambulatory_care,session_end:"
+msgid "End"
+msgstr "结束"
+
+msgctxt "field:gnuhealth.patient.ambulatory_care,session_notes:"
+msgid "Notes"
+msgstr "注意事项"
+
+msgctxt "field:gnuhealth.patient.ambulatory_care,session_number:"
+msgid "Session #"
+msgstr "轮次 #"
+
+msgctxt "field:gnuhealth.patient.ambulatory_care,session_start:"
+msgid "Start"
+msgstr "开始"
+
+msgctxt "field:gnuhealth.patient.ambulatory_care,signed_by:"
+msgid "Signed by"
+msgstr "签署人"
+
+msgctxt "field:gnuhealth.patient.ambulatory_care,state:"
+msgid "State"
+msgstr "状态"
+
+msgctxt "field:gnuhealth.patient.ambulatory_care,systolic:"
+msgid "Systolic Pressure"
+msgstr "收缩压"
+
+msgctxt "field:gnuhealth.patient.ambulatory_care,temperature:"
+msgid "Temperature"
+msgstr "体温"
+
+msgctxt "field:gnuhealth.patient.ambulatory_care,warning:"
+msgid "Warning"
+msgstr "警告"
+
+msgctxt "field:gnuhealth.patient.ambulatory_care,warning_icon:"
+msgid "Warning Icon"
+msgstr "警告图标"
+
+msgctxt "field:gnuhealth.patient.ambulatory_care,write_date:"
+msgid "Write Date"
+msgstr "写入日期"
+
+msgctxt "field:gnuhealth.patient.ambulatory_care,write_uid:"
+msgid "Write User"
+msgstr "写入用户"
+
+msgctxt "field:gnuhealth.patient.rounding,bpm:"
+msgid "Heart Rate"
+msgstr "心率"
+
+msgctxt "field:gnuhealth.patient.rounding,code:"
+msgid "Code"
+msgstr "查房编号"
+
+msgctxt "field:gnuhealth.patient.rounding,create_date:"
+msgid "Create Date"
+msgstr "创建日期"
+
+msgctxt "field:gnuhealth.patient.rounding,create_uid:"
+msgid "Create User"
+msgstr "创建用户"
+
+msgctxt "field:gnuhealth.patient.rounding,depression:"
+msgid "Depression signs"
+msgstr "抑郁"
+
+msgctxt "field:gnuhealth.patient.rounding,diastolic:"
+msgid "Diastolic Pressure"
+msgstr "舒张压"
+
+msgctxt "field:gnuhealth.patient.rounding,diuresis:"
+msgid "Diuresis"
+msgstr "利尿"
+
+msgctxt "field:gnuhealth.patient.rounding,environmental_assessment:"
+msgid "Environment"
+msgstr "病房环境"
+
+msgctxt "field:gnuhealth.patient.rounding,evaluation_end:"
+msgid "End"
+msgstr "结束"
+
+msgctxt "field:gnuhealth.patient.rounding,evaluation_start:"
+msgid "Start"
+msgstr "开始"
+
+msgctxt "field:gnuhealth.patient.rounding,evolution:"
+msgid "Evolution"
+msgstr "进展情况"
+
+msgctxt "field:gnuhealth.patient.rounding,glycemia:"
+msgid "Glycemia"
+msgstr "血糖"
+
+msgctxt "field:gnuhealth.patient.rounding,health_professional:"
+msgid "Health Professional"
+msgstr "健康专家"
+
+msgctxt "field:gnuhealth.patient.rounding,id:"
+msgid "ID"
+msgstr "住院编号"
+
+msgctxt "field:gnuhealth.patient.rounding,name:"
+msgid "Registration Code"
+msgstr "住院编号"
+
+msgctxt "field:gnuhealth.patient.rounding,osat:"
+msgid "Oxygen Saturation"
+msgstr "血氧饱和度"
+
+msgctxt "field:gnuhealth.patient.rounding,pain:"
+msgid "Pain"
+msgstr "疼痛"
+
+msgctxt "field:gnuhealth.patient.rounding,pain_level:"
+msgid "Pain"
+msgstr "疼痛"
+
+msgctxt "field:gnuhealth.patient.rounding,personal_needs:"
+msgid "Personal needs"
+msgstr "个人需要"
+
+msgctxt "field:gnuhealth.patient.rounding,position:"
+msgid "Position"
+msgstr "状态"
+
+msgctxt "field:gnuhealth.patient.rounding,potty:"
+msgid "Potty"
+msgstr "便壶"
+
+msgctxt "field:gnuhealth.patient.rounding,procedures:"
+msgid "Procedures"
+msgstr "护理操作"
+
+msgctxt "field:gnuhealth.patient.rounding,proximity:"
+msgid "Proximity"
+msgstr "接近"
+
+msgctxt "field:gnuhealth.patient.rounding,pump:"
+msgid "Pumps"
+msgstr "脉动"
+
+msgctxt "field:gnuhealth.patient.rounding,rec_name:"
+msgid "Record Name"
+msgstr "记录名称"
+
+msgctxt "field:gnuhealth.patient.rounding,report_end_date:"
+msgid "End Date"
+msgstr "结束日期"
+
+msgctxt "field:gnuhealth.patient.rounding,report_end_time:"
+msgid "End Time"
+msgstr "结束时间"
+
+msgctxt "field:gnuhealth.patient.rounding,report_start_date:"
+msgid "Start Date"
+msgstr "开始日期"
+
+msgctxt "field:gnuhealth.patient.rounding,report_start_time:"
+msgid "Start Time"
+msgstr "开始时间"
+
+msgctxt "field:gnuhealth.patient.rounding,respiratory_rate:"
+msgid "Respiratory Rate"
+msgstr "呼吸频率"
+
+msgctxt "field:gnuhealth.patient.rounding,round_summary:"
+msgid "Round Summary"
+msgstr "查房总结"
+
+msgctxt "field:gnuhealth.patient.rounding,signed_by:"
+msgid "Signed by"
+msgstr "签署人"
+
+msgctxt "field:gnuhealth.patient.rounding,state:"
+msgid "State"
+msgstr "状态"
+
+msgctxt "field:gnuhealth.patient.rounding,systolic:"
+msgid "Systolic Pressure"
+msgstr "收缩压"
+
+msgctxt "field:gnuhealth.patient.rounding,temperature:"
+msgid "Temperature"
+msgstr "体温"
+
+msgctxt "field:gnuhealth.patient.rounding,urinary_catheter:"
+msgid "Urinary Catheter"
+msgstr "导尿管"
+
+msgctxt "field:gnuhealth.patient.rounding,warning:"
+msgid "Warning"
+msgstr "警告"
+
+msgctxt "field:gnuhealth.patient.rounding,warning_icon:"
+msgid "Warning Icon"
+msgstr "警告图标"
+
+msgctxt "field:gnuhealth.patient.rounding,weight:"
+msgid "Weight"
+msgstr "体重"
+
+msgctxt "field:gnuhealth.patient.rounding,write_date:"
+msgid "Write Date"
+msgstr "写入日期"
+
+msgctxt "field:gnuhealth.patient.rounding,write_uid:"
+msgid "Write User"
+msgstr "写入用户"
+
+msgctxt "field:gnuhealth.rounding_procedure,create_date:"
+msgid "Create Date"
+msgstr "创建日期"
+
+msgctxt "field:gnuhealth.rounding_procedure,create_uid:"
+msgid "Create User"
+msgstr "创建用户"
+
+msgctxt "field:gnuhealth.rounding_procedure,id:"
+msgid "ID"
+msgstr "ID"
+
+msgctxt "field:gnuhealth.rounding_procedure,name:"
+msgid "Rounding"
+msgstr "查房"
+
+msgctxt "field:gnuhealth.rounding_procedure,notes:"
+msgid "Notes"
+msgstr "注意事项"
+
+msgctxt "field:gnuhealth.rounding_procedure,procedure:"
+msgid "Code"
+msgstr "护理操作代码"
+
+msgctxt "field:gnuhealth.rounding_procedure,rec_name:"
+msgid "Record Name"
+msgstr "记录名称"
+
+msgctxt "field:gnuhealth.rounding_procedure,write_date:"
+msgid "Write Date"
+msgstr "写入日期"
+
+msgctxt "field:gnuhealth.rounding_procedure,write_uid:"
+msgid "Write User"
+msgstr "写入用户"
+
+msgctxt "field:gnuhealth.sequence.setup,ambulatory_care_sequence:"
+msgid "Ambulatory Care Sequence"
+msgstr "流动护理序列"
+
+msgctxt "field:gnuhealth.sequence.setup,patient_rounding_sequence:"
+msgid "Patient Rounding Sequence"
+msgstr "患者查房序列"
+
+msgctxt "field:gnuhealth.sequences,ambulatory_care_sequence:"
+msgid "Health Ambulatory Care"
+msgstr "Health 流动护理"
+
+msgctxt "field:gnuhealth.sequences,patient_rounding_sequence:"
+msgid "Health Rounding"
+msgstr "Health 查房"
+
+msgctxt "help:gnuhealth.ambulatory_care_procedure,procedure:"
+msgid "Procedure Code, for example ICD-10-PCS Code 7-character string"
+msgstr "护理操作代码, 例如： ICD-10-PCS 代码，7位字符组成的字符串"
+
+msgctxt "help:gnuhealth.patient.ambulatory_care,bpm:"
+msgid "Heart rate expressed in beats per minute"
+msgstr "心率（次/分钟）"
+
+msgctxt "help:gnuhealth.patient.ambulatory_care,evolution:"
+msgid "Check your judgement of current patient condition"
+msgstr "检查你对当前病人患病情况的判断"
+
+msgctxt "help:gnuhealth.patient.ambulatory_care,glycemia:"
+msgid "Blood Glucose level"
+msgstr "血糖水平"
+
+msgctxt "help:gnuhealth.patient.ambulatory_care,osat:"
+msgid "Oxygen Saturation(arterial)."
+msgstr "血氧饱和度"
+
+msgctxt "help:gnuhealth.patient.ambulatory_care,procedures:"
+msgid ""
+"List of the procedures in this session. Please enter the first one as the "
+"main procedure"
+msgstr "本轮护理操作列表. 第一个输入的应该是主护理操作"
+
+msgctxt "help:gnuhealth.patient.ambulatory_care,respiratory_rate:"
+msgid "Respiratory rate expressed in breaths per minute"
+msgstr "呼吸频率（分钟/次）"
+
+msgctxt "help:gnuhealth.patient.ambulatory_care,signed_by:"
+msgid "Health Professional that signed the session"
+msgstr "签署此轮护理的健康专家"
+
+msgctxt "help:gnuhealth.patient.ambulatory_care,temperature:"
+msgid "Temperature in celsius"
+msgstr "摄氏度"
+
+msgctxt "help:gnuhealth.patient.ambulatory_care,warning:"
+msgid ""
+"Check this box to alert the supervisor about this session. A warning icon "
+"will be shown in the session list"
+msgstr "选中此框可提醒管理人员此次患者查房情况，查房列表中将显示警告图标"
+
+msgctxt "help:gnuhealth.patient.rounding,bpm:"
+msgid "Heart rate expressed in beats per minute"
+msgstr "心率（次数/分钟）"
+
+msgctxt "help:gnuhealth.patient.rounding,depression:"
+msgid "Check this if the patient shows signs of depression"
+msgstr "如果病人出现抑郁症状，就选中此项"
+
+msgctxt "help:gnuhealth.patient.rounding,diuresis:"
+msgid "volume in ml"
+msgstr "容量（ml）"
+
+msgctxt "help:gnuhealth.patient.rounding,environmental_assessment:"
+msgid "Environment assessment . State any disorder in the room."
+msgstr "环境评估，描述房间里的的任何混乱和失调"
+
+msgctxt "help:gnuhealth.patient.rounding,evolution:"
+msgid "Check your judgement of current patient condition"
+msgstr "检查你对当前患者患病的判断"
+
+msgctxt "help:gnuhealth.patient.rounding,glycemia:"
+msgid "Blood Glucose level"
+msgstr "血糖水平"
+
+msgctxt "help:gnuhealth.patient.rounding,osat:"
+msgid "Oxygen Saturation(arterial)."
+msgstr "血氧饱和度（动脉）"
+
+msgctxt "help:gnuhealth.patient.rounding,pain:"
+msgid "Check if the patient is in pain"
+msgstr "如果患者疼痛，就选中此项"
+
+msgctxt "help:gnuhealth.patient.rounding,pain_level:"
+msgid "Enter the pain level, from 1 to 10"
+msgstr "请输入疼痛级别，从1到10"
+
+msgctxt "help:gnuhealth.patient.rounding,personal_needs:"
+msgid "Check if the patient requests anything"
+msgstr "如果患者有任何要求，就选中此项"
+
+msgctxt "help:gnuhealth.patient.rounding,position:"
+msgid "Check if the patient needs to be repositioned or is unconfortable"
+msgstr "检查患者是否需要移动或者不舒服"
+
+msgctxt "help:gnuhealth.patient.rounding,potty:"
+msgid "Check if the patient needs to urinate / defecate"
+msgstr "如果患者需要大小便, 就选中此项"
+
+msgctxt "help:gnuhealth.patient.rounding,procedures:"
+msgid ""
+"List of the procedures in this rounding. Please enter the first one as the "
+"main procedure"
+msgstr "本此查房对应的护理操作列表，请先输入主操作"
+
+msgctxt "help:gnuhealth.patient.rounding,proximity:"
+msgid "Check if personal items, water, alarm, ... are not in easy reach"
+msgstr "如果个人物品、水、警报器...不容易接近，选中此项"
+
+msgctxt "help:gnuhealth.patient.rounding,pump:"
+msgid "Check if there is any issues with the pumps - IVs ... "
+msgstr "如果脉动-静脉注射液等有问题，就选中此项"
+
+msgctxt "help:gnuhealth.patient.rounding,respiratory_rate:"
+msgid "Respiratory rate expressed in breaths per minute"
+msgstr "呼吸频率（次/分钟)"
+
+msgctxt "help:gnuhealth.patient.rounding,signed_by:"
+msgid "Health Professional that signed the rounding"
+msgstr "签署此次查房的健康专家"
+
+msgctxt "help:gnuhealth.patient.rounding,temperature:"
+msgid "Temperature in celsius"
+msgstr "摄氏度"
+
+msgctxt "help:gnuhealth.patient.rounding,warning:"
+msgid ""
+"Check this box to alert the supervisor about this patient rounding. A "
+"warning icon will be shown in the rounding list"
+msgstr "选中此框可提醒管理人员此次患者查房情况，查房列表中将显示警告图标"
+
+msgctxt "help:gnuhealth.patient.rounding,weight:"
+msgid "Measured weight, in kg"
+msgstr "已测体重，单位：kg"
+
+msgctxt "help:gnuhealth.rounding_procedure,procedure:"
+msgid "Procedure Code, for example ICD-10-PCS Code 7-character string"
+msgstr "护理操作代码, 例如： ICD-10-PCS 代码，7位字符组成的字符串"
+
+msgctxt "model:gnuhealth.ambulatory_care_procedure,name:"
+msgid "Ambulatory Care Procedure"
+msgstr "流动护理操作"
+
+msgctxt "model:gnuhealth.patient.ambulatory_care,name:"
+msgid "Patient Ambulatory Care"
+msgstr "患者流动护理"
+
+msgctxt "model:gnuhealth.patient.rounding,name:"
+msgid "Patient Rounding"
+msgstr "患者查房"
+
+msgctxt "model:gnuhealth.rounding_procedure,name:"
+msgid "Rounding - Procedure"
+msgstr "查房 - 操作"
+
+msgctxt "model:ir.action,name:action_gnuhealth_patient_ambulatory_care_view"
+msgid "Ambulatory Care"
+msgstr "流动护理"
+
+msgctxt "model:ir.action,name:action_gnuhealth_patient_rounding_view"
+msgid "Roundings"
+msgstr "查房"
+
+msgctxt "model:ir.action,name:report_round_nursing"
+msgid "Nursing rounds"
+msgstr "护理查房"
+
+msgctxt "model:ir.sequence,name:seq_gnuhealth_ambulatory_care"
+msgid "Ambulatory Care"
+msgstr "流动护理"
+
+msgctxt "model:ir.sequence,name:seq_gnuhealth_patient_rounding"
+msgid "Patient Rounding"
+msgstr "患者查房"
+
+msgctxt "model:ir.sequence.type,name:seq_type_gnuhealth_ambulatory_care"
+msgid "Ambulatory Care"
+msgstr "流动护理"
+
+msgctxt "model:ir.sequence.type,name:seq_type_gnuhealth_patient_rounding"
+msgid "Patient Rounding"
+msgstr "患者查房"
+
+msgctxt "model:ir.ui.menu,name:gnuhealth_nursing_menu"
+msgid "Nursing"
+msgstr "护理"
+
+msgctxt "model:ir.ui.menu,name:menu_gnuhealth_patient_ambulatory_care_list"
+msgid "Ambulatory Care"
+msgstr "流动护理"
+
+msgctxt "model:ir.ui.menu,name:menu_gnuhealth_patient_rounding_list"
+msgid "Roundings"
+msgstr "查房"
+
+msgctxt "model:res.group,name:group_health_nursing"
+msgid "Health Nursing"
+msgstr "Health 护理"
+
+msgctxt "model:res.group,name:group_health_nursing_admin"
+msgid "Health Nursing Administration"
+msgstr "Health 护理管理"
+
+msgctxt "report:patient.rounding.report:"
+msgid "(%)"
+msgstr ""
+
+msgctxt "report:patient.rounding.report:"
+msgid "(C)"
+msgstr ""
+
+msgctxt "report:patient.rounding.report:"
+msgid "(kg)"
+msgstr ""
+
+msgctxt "report:patient.rounding.report:"
+msgid "."
+msgstr ""
+
+msgctxt "report:patient.rounding.report:"
+msgid "/"
+msgstr ""
+
+msgctxt "report:patient.rounding.report:"
+msgid "2"
+msgstr ""
+
+msgctxt "report:patient.rounding.report:"
+msgid ":"
+msgstr ""
+
+msgctxt "report:patient.rounding.report:"
+msgid ";"
+msgstr ""
+
+msgctxt "report:patient.rounding.report:"
+msgid "BP"
+msgstr ""
+
+msgctxt "report:patient.rounding.report:"
+msgid "Diuresis"
+msgstr "利尿"
+
+msgctxt "report:patient.rounding.report:"
+msgid "End"
+msgstr "结束"
+
+msgctxt "report:patient.rounding.report:"
+msgid "Evolution"
+msgstr "进展情况"
+
+msgctxt "report:patient.rounding.report:"
+msgid "Female"
+msgstr "女"
+
+msgctxt "report:patient.rounding.report:"
+msgid "Glycemia"
+msgstr "血糖"
+
+msgctxt "report:patient.rounding.report:"
+msgid "Health Professional:"
+msgstr "健康专家: "
+
+msgctxt "report:patient.rounding.report:"
+msgid "Heart rate"
+msgstr "心率"
+
+msgctxt "report:patient.rounding.report:"
+msgid "ID:"
+msgstr "ID: "
+
+msgctxt "report:patient.rounding.report:"
+msgid "Improving"
+msgstr "正在改善"
+
+msgctxt "report:patient.rounding.report:"
+msgid "Level:"
+msgstr "等级: "
+
+msgctxt "report:patient.rounding.report:"
+msgid "Male"
+msgstr "男"
+
+msgctxt "report:patient.rounding.report:"
+msgid "No"
+msgstr "否"
+
+msgctxt "report:patient.rounding.report:"
+msgid "O"
+msgstr ""
+
+msgctxt "report:patient.rounding.report:"
+msgid "P"
+msgstr ""
+
+msgctxt "report:patient.rounding.report:"
+msgid "PU"
+msgstr ""
+
+msgctxt "report:patient.rounding.report:"
+msgid "Pain"
+msgstr "疼痛"
+
+msgctxt "report:patient.rounding.report:"
+msgid "Procedures"
+msgstr "护理操作"
+
+msgctxt "report:patient.rounding.report:"
+msgid "Resp. rate"
+msgstr "呼吸频率"
+
+msgctxt "report:patient.rounding.report:"
+msgid "Sat"
+msgstr ""
+
+msgctxt "report:patient.rounding.report:"
+msgid "Start"
+msgstr "开始"
+
+msgctxt "report:patient.rounding.report:"
+msgid "Status quo"
+msgstr ""
+
+msgctxt "report:patient.rounding.report:"
+msgid "Summary"
+msgstr "查房总结"
+
+msgctxt "report:patient.rounding.report:"
+msgid "Temp"
+msgstr "体温"
+
+msgctxt "report:patient.rounding.report:"
+msgid "Weight"
+msgstr "体重"
+
+msgctxt "report:patient.rounding.report:"
+msgid "Worsening"
+msgstr "正在恶化"
+
+msgctxt "report:patient.rounding.report:"
+msgid "Yes"
+msgstr "是"
+
+msgctxt "report:patient.rounding.report:"
+msgid "atient:"
+msgstr "患者: "
+
+msgctxt "selection:gnuhealth.patient.ambulatory_care,evolution:"
+msgid ""
+msgstr ""
+
+msgctxt "selection:gnuhealth.patient.ambulatory_care,evolution:"
+msgid "Improving"
+msgstr "正在改善"
+
+msgctxt "selection:gnuhealth.patient.ambulatory_care,evolution:"
+msgid "Initial"
+msgstr "初次"
+
+msgctxt "selection:gnuhealth.patient.ambulatory_care,evolution:"
+msgid "Status Quo"
+msgstr "现状"
+
+msgctxt "selection:gnuhealth.patient.ambulatory_care,evolution:"
+msgid "Worsening"
+msgstr "正在恶化"
+
+msgctxt "selection:gnuhealth.patient.ambulatory_care,state:"
+msgid ""
+msgstr ""
+
+msgctxt "selection:gnuhealth.patient.ambulatory_care,state:"
+msgid "Done"
+msgstr "完成"
+
+msgctxt "selection:gnuhealth.patient.ambulatory_care,state:"
+msgid "In Progress"
+msgstr "过程中"
+
+msgctxt "selection:gnuhealth.patient.rounding,evolution:"
+msgid ""
+msgstr ""
+
+msgctxt "selection:gnuhealth.patient.rounding,evolution:"
+msgid "Improving"
+msgstr "正在改善"
+
+msgctxt "selection:gnuhealth.patient.rounding,evolution:"
+msgid "Status Quo"
+msgstr "现状"
+
+msgctxt "selection:gnuhealth.patient.rounding,evolution:"
+msgid "Worsening"
+msgstr "正在恶化"
+
+msgctxt "selection:gnuhealth.patient.rounding,state:"
+msgid ""
+msgstr ""
+
+msgctxt "selection:gnuhealth.patient.rounding,state:"
+msgid "Done"
+msgstr "完成"
+
+msgctxt "selection:gnuhealth.patient.rounding,state:"
+msgid "In Progress"
+msgstr "过程中"
+
+msgctxt "view:gnuhealth.ambulatory_care_procedure:"
+msgid "Procedure Details / Incidents"
+msgstr "护理操作细节 / 事件"
+
+msgctxt "view:gnuhealth.patient.ambulatory_care:"
+msgid "End"
+msgstr "结束"
+
+msgctxt "view:gnuhealth.patient.ambulatory_care:"
+msgid "End this session"
+msgstr ""
+
+msgctxt "view:gnuhealth.patient.ambulatory_care:"
+msgid "End this session ?"
+msgstr ""
+
+msgctxt "view:gnuhealth.patient.ambulatory_care:"
+msgid "Main"
+msgstr "主要"
+
+msgctxt "view:gnuhealth.patient.ambulatory_care:"
+msgid "Misc"
+msgstr "其他"
+
+msgctxt "view:gnuhealth.patient.ambulatory_care:"
+msgid "Summary"
+msgstr "查房总结"
+
+msgctxt "view:gnuhealth.patient.ambulatory_care:"
+msgid "Vital Signs"
+msgstr "生命体征"
+
+msgctxt "view:gnuhealth.patient.rounding:"
+msgid "End rounding"
+msgstr "结束查房"
+
+msgctxt "view:gnuhealth.patient.rounding:"
+msgid "End this rounding"
+msgstr "结束此次查房"
+
+msgctxt "view:gnuhealth.patient.rounding:"
+msgid "End this rounding ?"
+msgstr "结束此次查房？"
+
+msgctxt "view:gnuhealth.patient.rounding:"
+msgid "Main"
+msgstr "主要"
+
+msgctxt "view:gnuhealth.patient.rounding:"
+msgid "Other"
+msgstr "其它"
+
+msgctxt "view:gnuhealth.patient.rounding:"
+msgid "Procedures"
+msgstr "护理操作"
+
+msgctxt "view:gnuhealth.patient.rounding:"
+msgid "Round summary"
+msgstr "查房总结"
+
+msgctxt "view:gnuhealth.patient.rounding:"
+msgid "Six P's"
+msgstr ""
+
+msgctxt "view:gnuhealth.patient.rounding:"
+msgid "Time"
+msgstr "时间"
+
+msgctxt "view:gnuhealth.patient.rounding:"
+msgid "Vital Signs"
+msgstr "生命体征"
+
+msgctxt "view:gnuhealth.rounding_procedure:"
+msgid "Procedure Details / Incidents"
+msgstr "护理操作细节 / 事件"

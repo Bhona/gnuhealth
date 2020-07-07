@@ -1,0 +1,7 @@
+<?xml version="1.0"?>
+<tree editable="top">
+    <field name="qty"/>
+    <field name="supply" expand="1"/>
+    <field name="qty_used"/>
+    <field name="notes" expand="1"/>
+</tree>

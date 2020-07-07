@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<tryton>
+    <data noupdate="1">
+
+        <!-- Sequences for imaging result -->
+        <record id="seq_type_gnuhealth_imaging_test" model="ir.sequence.type">
+            <field name="name">Imaging Test</field>
+            <field name="code">gnuhealth.imaging.test.result</field>
+        </record>
+        <record id="seq_gnuhealth_imaging_test" model="ir.sequence">
+            <field name="name">Imaging Test</field>
+            <field name="code">gnuhealth.imaging.test.result</field>
+            <field name="prefix">TEST</field>
+            <field name="padding">3</field>
+        </record>
+
+        <!-- Sequences for imaging request -->
+        <record id="seq_type_gnuhealth_imaging_test_request" model="ir.sequence.type">
+            <field name="name">Imaging Test Request</field>
+            <field name="code">gnuhealth.imaging.test.request</field>
+        </record>
+        <record id="seq_gnuhealth_imaging_test_request" model="ir.sequence">
+            <field name="name">Imaging Test Request</field>
+            <field name="code">gnuhealth.imaging.test.request</field>
+            <field name="padding">3</field>
+        </record>
+
+    </data>
+</tryton>

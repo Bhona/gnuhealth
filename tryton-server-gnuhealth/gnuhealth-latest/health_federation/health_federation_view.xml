@@ -1,0 +1,148 @@
+<?xml version="1.0"?>
+<tryton>
+    <data>
+
+
+<!-- GNU Health Federation main menu -->
+
+        <menuitem name="Federation" id="gnuhealth_federation"
+            sequence="990" parent="health.gnuhealth_menu" 
+            icon="health-federation"/>
+
+<!-- GNU Health Federation Config -->
+
+        <record model="ir.ui.view" id="gnuhealth_federation_config_view">
+            <field name="model">gnuhealth.federation.config</field>
+            <field name="type">form</field>
+            <field name="name">gnuhealth_federation_config</field>
+        </record>
+
+        <record model="ir.ui.view" id="gnuhealth_federation_config_tree">
+            <field name="model">gnuhealth.federation.config</field>
+            <field name="type">tree</field>
+            <field name="name">gnuhealth_federation_config_tree</field>
+        </record>
+
+        <record model="ir.action.act_window" id="gnuhealth_action_federation_config">
+            <field name="name">Node Configuration</field>
+            <field name="res_model">gnuhealth.federation.config</field>
+        </record>
+
+        <record model="ir.action.act_window.view" id="act_federation_config_list_view">
+            <field name="sequence" eval="10"/>
+            <field name="view" ref="gnuhealth_federation_config_tree"/>
+            <field name="act_window" ref="gnuhealth_action_federation_config"/>
+        </record>
+        <record model="ir.action.act_window.view" id="act_federation_config_form_view">
+            <field name="sequence" eval="20"/>
+            <field name="view" ref="gnuhealth_federation_config_view"/>
+            <field name="act_window" ref="gnuhealth_action_federation_config"/>
+        </record>
+
+        <menuitem action="gnuhealth_action_federation_config" icon="gnuhealth-list"
+            id="gnuhealth_conf_federation_config" sequence="10"
+            parent="health.gnuhealth_conf_federation"/>
+
+
+<!-- GNU Health Federation Queue -->
+
+        <record model="ir.ui.view" id="gnuhealth_federation_queue_view">
+            <field name="model">gnuhealth.federation.queue</field>
+            <field name="type">form</field>
+            <field name="name">gnuhealth_federation_queue</field>
+        </record>
+
+        <record model="ir.ui.view" id="gnuhealth_federation_queue_tree">
+            <field name="model">gnuhealth.federation.queue</field>
+            <field name="type">tree</field>
+            <field name="name">gnuhealth_federation_queue_tree</field>
+        </record>
+
+        <record model="ir.action.act_window" id="gnuhealth_action_federation_queue">
+            <field name="name">Federation Queue Manager</field>
+            <field name="res_model">gnuhealth.federation.queue</field>
+        </record>
+
+        <record model="ir.action.act_window.view" id="act_federation_queue_list_view">
+            <field name="sequence" eval="10"/>
+            <field name="view" ref="gnuhealth_federation_queue_tree"/>
+            <field name="act_window" ref="gnuhealth_action_federation_queue"/>
+        </record>
+        <record model="ir.action.act_window.view" id="act_federation_queue_form_view">
+            <field name="sequence" eval="20"/>
+            <field name="view" ref="gnuhealth_federation_queue_view"/>
+            <field name="act_window" ref="gnuhealth_action_federation_queue"/>
+        </record>
+
+
+        <record model="ir.action.act_window.domain" id="act_gnuhealth_fedq_domain_queued">
+            <field name="name">Queued</field>
+            <field name="sequence" eval="10"/>
+            <field name="domain" eval="[('state', '=', 'queued')]" pyson="1"/>
+            <field name="act_window" ref="gnuhealth_action_federation_queue"/>
+        </record>
+        <record model="ir.action.act_window.domain" id="act_gnuhealth_fedq_domain_sent">
+            <field name="name">Sent</field>
+            <field name="sequence" eval="20"/>
+            <field name="domain" eval="[('state', '=', 'sent')]" pyson="1"/>
+            <field name="act_window" ref="gnuhealth_action_federation_queue"/>
+        </record>
+        <record model="ir.action.act_window.domain" id="act_gnuhealth_fedq_domain_failed">
+            <field name="name">Failed</field>
+            <field name="sequence" eval="30"/>
+            <field name="domain" eval="[('state', '=', 'failed')]" pyson="1"/>
+            <field name="act_window" ref="gnuhealth_action_federation_queue"/>
+        </record>
+        <record model="ir.action.act_window.domain" id="act_gnuhealth_fedq_domain_all">
+            <field name="name">All</field>
+            <field name="sequence" eval="9999"/>
+            <field name="domain"></field>
+            <field name="act_window" ref="gnuhealth_action_federation_queue"/>
+        </record>
+
+
+
+
+
+
+<!-- GNU Health Federation Queue Manager -->
+
+        <menuitem action="gnuhealth_action_federation_queue" icon="gnuhealth-list"
+            id="gnuhealth_conf_federation_queue" parent="gnuhealth_federation"/>
+
+<!-- GNU Health Federation Object -->
+
+        <record model="ir.ui.view" id="gnuhealth_federation_object_view">
+            <field name="model">gnuhealth.federation.object</field>
+            <field name="type">form</field>
+            <field name="name">gnuhealth_federation_object</field>
+        </record>
+
+        <record model="ir.ui.view" id="gnuhealth_federation_object_tree">
+            <field name="model">gnuhealth.federation.object</field>
+            <field name="type">tree</field>
+            <field name="name">gnuhealth_federation_object_tree</field>
+        </record>
+
+        <record model="ir.action.act_window" id="gnuhealth_action_federation_object">
+            <field name="name">Federation Objects</field>
+            <field name="res_model">gnuhealth.federation.object</field>
+        </record>
+
+        <record model="ir.action.act_window.view" id="act_federation_object_list_view">
+            <field name="sequence" eval="10"/>
+            <field name="view" ref="gnuhealth_federation_object_tree"/>
+            <field name="act_window" ref="gnuhealth_action_federation_object"/>
+        </record>
+        <record model="ir.action.act_window.view" id="act_federation_object_form_view">
+            <field name="sequence" eval="20"/>
+            <field name="view" ref="gnuhealth_federation_object_view"/>
+            <field name="act_window" ref="gnuhealth_action_federation_object"/>
+        </record>
+
+        <menuitem action="gnuhealth_action_federation_object" icon="gnuhealth-list"
+            id="gnuhealth_conf_federation_object" sequence="20" 
+            parent="health.gnuhealth_conf_federation"/>
+
+    </data>
+</tryton>

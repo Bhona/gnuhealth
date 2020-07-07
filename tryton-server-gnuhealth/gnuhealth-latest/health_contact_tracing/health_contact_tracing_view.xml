@@ -1,0 +1,53 @@
+<?xml version="1.0"?>
+<tryton>
+    <data>
+
+
+<!-- Add Contact tracing icon -->
+
+        <record model="ir.ui.icon" id="contact-tracing_icon">
+            <field name="name">gnuhealth-contact-tracing</field>
+            <field name="path">icons/contact_tracing.svg</field>
+        </record>
+
+
+<!-- Patient PAPER Clinical HIstory -->
+
+        <record model="ir.ui.view" id="gnuhealth_contact_tracing_view_form">
+            <field name="model">gnuhealth.contact_tracing</field>
+            <field name="type">form</field>
+            <field name="name">gnuhealth_contact_tracing_form</field>
+        </record>
+
+<!-- Tree view for Contact tracing -->
+
+        <record model="ir.ui.view" id="gnuhealth_contact_tracing_tree">
+            <field name="model">gnuhealth.contact_tracing</field>
+            <field name="type">tree</field>
+            <field name="name">gnuhealth_contact_tracing_tree</field>
+        </record>
+
+<!-- Actions for Contact tracing -->
+
+        <record model="ir.action.act_window" id="gnuhealth_action_contact_tracing">
+            <field name="name">Contact Tracing</field>
+            <field name="res_model">gnuhealth.contact_tracing</field>
+        </record>
+
+        <record model="ir.action.act_window.view" id="act_contact_tracing_list_view">
+            <field name="sequence" eval="10"/>
+            <field name="view" ref="gnuhealth_contact_tracing_tree"/>
+            <field name="act_window" ref="gnuhealth_action_contact_tracing"/>
+        </record>
+        <record model="ir.action.act_window.view" id="act_contact_tracing_form_view">
+            <field name="sequence" eval="20"/>
+            <field name="view" ref="gnuhealth_contact_tracing_view_form"/>
+            <field name="act_window" ref="gnuhealth_action_contact_tracing"/>
+        </record>
+
+        <menuitem parent="health.gnuhealth_menu" 
+            sequence="610" action="gnuhealth_action_contact_tracing" 
+            name="Contact Tracing" id="gnuhealth_contact-tracing" icon="gnuhealth-contact-tracing"/>
+
+    </data>
+</tryton>

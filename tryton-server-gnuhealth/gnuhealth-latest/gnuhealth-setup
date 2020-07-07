@@ -1,0 +1,552 @@
+#!/bin/bash
+
+# GNU Health HMIS node installer
+# Version for 3.6 series
+
+##############################################################################
+#
+#    GNU Health Installer
+#
+#    Copyright (C) 2008-2020  Luis Falcon <falcon@gnuhealth.org>
+#    Copyright (C) 2008-2020  GNU Solidario <health@gnusolidario.org>
+#    Copyright (C) 2014 Bruno M. Villasanti <bvillasanti@thymbra.com>
+#
+#    This program is free software: you can redistribute it and/or modify
+#    it under the terms of the GNU General Public License as published by
+#    the Free Software Foundation, either version 3 of the License, or
+#    (at your option) any later version.
+#
+#    This program is distributed in the hope that it will be useful,
+#    but WITHOUT ANY WARRANTY; without even the implied warranty of
+#    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+#    GNU General Public License for more details.
+#
+#    You should have received a copy of the GNU General Public License
+#    along with this program.  If not, see <http://www.gnu.org/licenses/>.
+#
+##############################################################################
+
+#-----------------------------------------------------------------------------
+# Variables declaration
+#-----------------------------------------------------------------------------
+
+#GNU Health HMIS installer version
+VERSION="3.6.3"
+
+# Colors constants
+NONE="$(tput sgr0)"
+RED="$(tput setaf 1)"
+GREEN="$(tput setaf 2)"
+YELLOW="\n$(tput setaf 3)"
+WHITE="\n$(tput setaf 7)"
+
+# Params
+INSTDIR="$PWD"
+GNUHEALTH_INST_DIR="$PWD"
+GNUHEALTH_VERSION=$(cat version)
+TRYTON_VERSION="5.0"
+
+TRYTON_BASE_URL="https://downloads-cdn.tryton.org"
+
+GNUHEALTH_URL="https://ftp.gnu.org/gnu/health"
+TRANSLATE_URL="http://translate.gnusolidario.org"
+UPDATE_DOWNLOAD_DIR="/tmp/gnuhealth_update"
+TRYTON_PATCHES=""
+
+
+#-----------------------------------------------------------------------------
+# Functions
+#-----------------------------------------------------------------------------
+
+message()
+{
+    local UTC="$(date -u +'%Y-%m-%d %H:%M:%S')"
+    
+    case $1 in
+      ERROR ) echo -e "\e[00;31m${UTC} [ERROR] $2\e[00m";;
+      WARNING ) echo -e "\e[0;33m${UTC} [WARNING] $2\e[m" ;;
+      INFO ) echo -e "\e[0;36m${UTC} [INFO] $2\e[m" ;;
+    esac
+}
+
+help()
+{
+    cat << EOF
+
+This is GNU Health HMIS Setup ${VERSION}
+
+usage: `basename $0` command
+
+Command:
+ 
+  version : Show version
+  install  : Install a GNU Health HMIS server
+  help  : shows this message
+
+EOF
+    exit 0
+}
+
+show_version () {
+    case $1 in
+        version) message "INFO" "This is is GNU Health HMIS setup v ${VERSION}"; exit 0;;
+    esac
+
+}
+
+check_requirements() {
+    # WGET command
+    message "INFO" "Checking requirements"
+    echo -n " -> Looking for wget... "
+
+    if ! type wget 2>/dev/null ; then
+        message "ERROR" "wget command not found. Please install it or check your PATH variable"
+        bailout
+    fi
+
+    echo -n " -> Looking for patch... "
+
+    if ! type patch 2>/dev/null ; then
+        message "ERROR" "patch command not found. Please install it or check your PATH variable"
+        bailout
+    fi
+
+    # PYTHON version [3.x]
+    echo -n " -> Looking for the Python Interpreter command... "
+
+    if ! type python3 2>/dev/null ; then
+        message "ERROR" "Python interpreter not found. Please install it or check your PATH variable."
+        bailout
+    fi
+
+    local PVERSION=$(python3 -V 2>&1 | grep 3.[4-9].[0-9])
+
+    if test "${PVERSION}" ; then
+        message "INFO" "Found ${PVERSION}"
+    else
+        python -V
+        message "ERROR" "Found an Incompatible Python version."
+        bailout
+    fi
+
+    # PIP command
+    echo " -> Looking for PIP command..."
+
+    # PIP names on Debian/ArchLinux/RedHat based distros:
+    local PIP_NAMES="pip pip3 pip-python"
+    PIP_NAME=""
+    for NAME in ${PIP_NAMES}; do
+        if [[ $(which ${NAME} 2>/dev/null) ]]; then
+            PIP_NAME=${NAME}
+            break
+        fi
+    done
+
+    if [[ ! ${PIP_NAME} ]]; then
+        message "ERROR" "PIP command not found. Please install it or check your PATH variable."
+        bailout
+    fi
+
+    # Check main operating system
+    case "$OSTYPE" in
+        freebsd*)
+            message "INFO" "Running on FreeBSD"
+            OS="FREEBSD"
+            ;;
+        linux*)
+            message "INFO" "Running on GNU/LINUX"
+            OS="GNULINUX"
+            # Check for GNU/Linux Distros
+            echo -n " -> Looking for lsb_release ... "
+            if ! type lsb_release 2>/dev/null ; then
+                message "WARNING" "lsb_release not found"
+
+            else
+                GNU_LINUX_DISTRO=$(lsb_release -i -s)
+            fi
+
+            message "INFO" "GNU / Linux distro: $GNU_LINUX_DISTRO"
+            ;;
+        *)
+            message "INFO" "Running on Other OS: $OSTYPE"
+            ;;
+    esac
+
+    message "INFO" "OK."
+}
+
+
+install_directories() {
+    #
+    # Temporary/staging area.
+    #
+    message "INFO" "Creating temporary directory..."
+
+    # global variable
+    TMP_DIR="/tmp/gnuhealth_installer"
+
+    if [[ -e ${TMP_DIR} ]]; then
+        message "ERROR" "Directory ${TMP_DIR} exists. You need to delete it."
+        bailout
+    else
+        mkdir ${TMP_DIR} || bailout
+    fi
+    message "INFO" "OK."
+
+    #
+    # Create the destination directories.
+    #
+    message "INFO" "Creating destination directories..."
+
+    # global variables
+    BASEDIR="$HOME/gnuhealth"
+    TRYTON_BASEDIR="${BASEDIR}/tryton"
+    TRYTOND_DIR="${TRYTON_BASEDIR}/server"
+    MODULES_DIR="${TRYTOND_DIR}/modules"
+    LOG_DIR="${BASEDIR}/logs"
+    ATTACH_DIR="${HOME}/attach"
+    LOCAL_MODS_DIR="${MODULES_DIR}/local"
+    CONFIG_DIR="${TRYTOND_DIR}/config"
+    UTIL_DIR="${TRYTOND_DIR}/util"
+    DOC_DIR="${BASEDIR}/doc"
+
+    # Create GNU Health directories
+    if [[ -e ${BASEDIR} ]]; then
+        message "ERROR" "Directory ${BASEDIR} exists. You need to delete it."
+        bailout
+    else
+        mkdir -p ${MODULES_DIR} ${LOG_DIR} ${ATTACH_DIR} ${LOCAL_MODS_DIR} ${CONFIG_DIR} ${UTIL_DIR} ${DOC_DIR}||  bailout
+    fi
+    message "INFO" "OK."
+}
+
+
+install_python_dependencies() {
+    message "INFO" "Updating Python dependencies..."
+    check_requirements
+
+    local PIP_CMD=$(which $PIP_NAME)
+    local PIP_VERSION="$(${PIP_CMD} --version | awk '{print $2}')"
+
+    local PIP_ARGS="install --upgrade --user"
+
+    # Python packages
+    local PIP_LXML="lxml"
+    local PIP_RELATORIO="relatorio"
+    local PIP_WRAPT="wrapt"
+    local PIP_WERKZEUG="werkzeug<1.0"
+    local PIP_DATEUTIL="python-dateutil"
+    local PIP_PSYCOPG2="psycopg2-binary"
+    local PIP_PYTZ="pytz"
+    local PIP_LDAP="python-ldap"
+    local PIP_VOBJECT="vobject==0.9.5"
+    local PIP_QRCODE="qrcode"
+    local PIP_PYBARCODE="python-barcode"
+    local PIP_SIX="six"
+    local PIP_PILLOW="Pillow"
+    local PIP_CALDAV="caldav"
+    local PIP_POLIB="polib"
+    local PIP_SQL="python-sql"
+    local PIP_STDNUM="python-stdnum"
+    local PIP_SIMPLEEVAL="simpleeval"
+    local PIP_CONFIGPARSER="configparser"
+    local PIP_WEBDAV3="pywebdav3-gnuhealth"
+    local PIP_BCRYPT="bcrypt"
+    local PIP_NUMPY="numpy"
+    local PIP_UNOCONV="unoconv"
+    local PIP_MAGIC="python-magic"
+    local PIP_PASSLIB="passlib"
+    local PIP_BEREN="beren"
+    local PIP_PENDULUM="pendulum"
+    local PIP_MATPLOTLIB="matplotlib"
+
+    # Operating System specific package selection
+    # Skip PYTHON-LDAP installation since it tries to install / compile it system-wide
+    
+    message "WARNING" "Skipping local PYTHON-LDAP installation. Please refer to the Wikibook to install it"
+
+    local PIP_PKGS="$PIP_NUMPY $PIP_PYTZ $PIP_WRAPT $PIP_WERKZEUG $PIP_SIX $PIP_LXML $PIP_RELATORIO $PIP_DATEUTIL $PIP_PSYCOPG2 $PIP_VOBJECT \
+        $PIP_QRCODE $PIP_PYBARCODE $PIP_PILLOW $PIP_CALDAV $PIP_POLIB $PIP_SQL $PIP_STDNUM $PIP_SIMPLEEVAL $PIP_CONFIGPARSER \
+        $PIP_WEBDAV3 $PIP_BCRYPT $PIP_UNOCONV $PIP_MAGIC $PIP_PASSLIB $PIP_BEREN $PIP_PENDULUM $PIP_MATPLOTLIB"
+    
+    message "INFO" "Installing python dependencies with pip-${PIP_VERSION} ..."
+
+    for PKG in ${PIP_PKGS}; do
+        message " >> ${PKG}"
+        ${PIP_CMD} ${PIP_ARGS} ${PKG} || bailout
+        message " >> OK"
+    done
+}
+
+
+get_url() {
+    # $1 : Module name
+    # return : URL to download
+    echo ${TRYTON_BASE_URL}/${TRYTON_VERSION}/$(wget --quiet -O- ${TRYTON_BASE_URL}/${TRYTON_VERSION} | egrep -o "${1}-${TRYTON_VERSION}.[0-9\.]+.tar.gz" | sort -V | tail -1)
+}
+
+
+install_tryton_modules() {
+    #
+    # Get the lastest revision number for each Tryton module.
+    #
+    message "INFO" "Getting list of lastest Tryton packages..."
+
+    local TRYTOND_URL=$(get_url trytond)
+    local TRYTOND_FILE=$(basename ${TRYTOND_URL})
+
+    local TRYTON_MODULES="account account_invoice account_product company country currency party product stock stock_lot purchase account_invoice_stock stock_supply purchase_request"
+
+    local TRYTON_MODULES_FILE=""
+    local TRYTON_MODULES_URL=""
+    local AUX="" MODULE=""
+    for MODULE in ${TRYTON_MODULES}
+    do
+        AUX=$(get_url trytond_${MODULE})
+        TRYTON_MODULES_URL="${TRYTON_MODULES_URL} ${AUX}"
+        TRYTON_MODULES_FILE="${TRYTON_MODULES_FILE} $(basename ${AUX})"
+    done
+
+    message "INFO" "OK."
+
+    #
+    # Download Tryton packages.
+    #
+    message "INFO" "Changing to temporary directory."
+    cd ${TMP_DIR} || bailout
+
+    message "INFO" "Downloading the Tryton server..."
+    wget ${TRYTOND_URL} || bailout
+    message "INFO" "OK."
+
+    message "INFO" "Downloading Tryton modules..."
+    local URL=""
+    for URL in ${TRYTON_MODULES_URL}; do
+        wget ${URL} || bailout
+    done
+    message "INFO" "OK."
+
+    #
+    # Uncompress the Tryton packages.
+    #
+    message "INFO" "Uncompressing the Tryton server..."
+    cd ${TRYTOND_DIR}
+    tar -xzf ${TMP_DIR}/${TRYTOND_FILE} || bailout
+    message "INFO" "OK."
+
+    message "INFO" "Uncompressing the Tryton modules..."
+    cd ${MODULES_DIR} || bailout
+    for MODULE in $(ls ${TMP_DIR}/trytond_*); do
+        tar -xzf ${MODULE} || bailout
+    done
+    message "INFO" "OK."
+
+    #
+    # Links to modules.
+    #
+    message "INFO" "Changing directory to <../trytond/modules>."
+    local TRYTOND_FOLDER=$(basename ${TRYTOND_FILE} .tar.gz)
+    cd "${TRYTOND_DIR}/${TRYTOND_FOLDER}/trytond/modules" || bailout
+
+    message "INFO" "Linking the Tryton modules..."
+    local LNMOD=""
+    for LNMOD in ${TRYTON_MODULES}; do
+        ln -si ${MODULES_DIR}/trytond_${LNMOD}-* ${LNMOD} || bailout
+    done
+    message "INFO" "OK."
+
+}
+
+gnuhealth_packages() {
+
+    message "INFO" "Copying GNU Health HMIS packages to the Tryton modules directory..."
+    cp -a ${GNUHEALTH_INST_DIR}/health* ${MODULES_DIR} || bailout
+    ln -si ${MODULES_DIR}/health* .
+    rm -f ./health_webdav3_server
+    rm -f ./health_caldav
+
+    message "INFO" "Installing WebDAV related packages..."
+    ln -si ${MODULES_DIR}/health_webdav3_server ./webdav
+    ln -si ${MODULES_DIR}/health_caldav ./calendar
+
+    # Copy LICENSE README and version files
+    
+    local EXTRA_FILES="COPYING README version"
+    for FILE in ${EXTRA_FILES}; do
+        cp -a ${GNUHEALTH_INST_DIR}/${FILE} ${BASEDIR} || bailout
+    done
+
+    # Copy Tryton configuration files
+    
+    cp ${GNUHEALTH_INST_DIR}/config/* ${CONFIG_DIR} || bailout
+
+    message "INFO" "OK."
+
+    # Copy gnuhealth-control
+    
+    cp ${GNUHEALTH_INST_DIR}/gnuhealth-control ${UTIL_DIR} || bailout
+
+    message "INFO" "OK."
+
+    # Copy documentation directory
+    
+    cp -a ${GNUHEALTH_INST_DIR}/doc/* ${DOC_DIR} || bailout
+
+    message "INFO" "OK."
+
+}
+
+# Apply Security and other Tryton Kernel Patches
+
+apply_patches() {
+
+        message "INFO" "APPLY SECURITY AND OTHER PATCHES TO THE STANDARD TRYTON KERNEL"
+        for n in ${TRYTON_PATCHES}
+        do
+            cd ${BASEDIR}/tryton/server/trytond-${TRYTON_VERSION}*
+            patch --dry-run --silent -N -p1 < ${GNUHEALTH_INST_DIR}/patches/${n}
+            if [ $? -eq 0 ]; then
+                message "WARNING" "Applying patch ${n} to Tryton kernel"
+                patch -p1 < ${GNUHEALTH_INST_DIR}/patches/${n} || exit 1
+                message "INFO" "Tryton kernel sucessfully patched"
+            else
+                message "INFO" "Patch ${n} already applied or not elegible"
+            fi
+
+            done
+
+}
+
+bash_profile () {
+
+    message "INFO" "Creating or Updating the BASH profile for GNU Health"
+
+    cd $INSTDIR
+
+    PROFILE="$HOME/.gnuhealthrc"
+
+    if [[ -e ${PROFILE} ]]; then
+        # Make a backup copy of the GNU Health BASH profile if it exists
+        message "INFO" "GNU Health BASH Profile exists. Making backup to ${PROFILE}.bak ."
+        cp ${PROFILE} ${PROFILE}.bak || bailout
+    fi
+
+    cp gnuhealthrc ${PROFILE} ||  bailout
+
+    # Load .gnuhealthrc from .bash_profile . If .bash_profile does not exist, create it.
+    if [[ -e $HOME/.bash_profile ]]; then
+        grep --silent "source ${PROFILE}" $HOME/.bash_profile || echo "[[ -f ${PROFILE} ]] && source ${PROFILE}" >> $HOME/.bash_profile
+    else
+        echo "[[ -f ${PROFILE} ]] && source ${PROFILE}" >> $HOME/.bash_profile
+    fi
+
+    # Include .gnuhealthrc in .bashrc for non-login shells
+    if [[ -e $HOME/.bashrc ]]; then
+        grep --silent "source ${PROFILE}" $HOME/.bashrc || echo "[[ -f ${PROFILE} ]] && source ${PROFILE}" >> $HOME/.bashrc
+    else
+        echo "[[ -f ${PROFILE} ]] && source ${PROFILE}" >> $HOME/.bashrc
+    fi
+
+}
+
+startup_script () {
+
+    message "INFO" "Creating or Updating the startup script for GNU Health"
+
+    cd $INSTDIR
+
+    START_GNUHEALTH="$HOME/start_gnuhealth.sh"
+
+    if [[ -e ${START_GNUHEALTH} ]]; then
+        # Make a backup copy of the GNU Health startup script if it exists
+        message "INFO" "GNU Health startup script exists. Making backup to ${START_GNUHEALTH}.bak ."
+        cp ${START_GNUHEALTH} ${START_GNUHEALTH}.bak || bailout
+    fi
+
+    cp start_gnuhealth.sh ${START_GNUHEALTH} ||  bailout
+
+}
+
+cleanup() {
+    message "INFO" "Cleaning Up..."
+    rm -rf ${TMP_DIR} || bailout
+    message "INFO" "OK."
+
+    installation_ok
+}
+
+installation_ok() {
+    touch ${BASEDIR}/.installation_ok || bailout
+    message "INFO" "Installation of GNU Health HMIS version ${GNUHEALTH_VERSION} successful !"
+}
+
+bailout() {
+    message "INFO" "Bailing out !"
+    message "INFO" "Cleaning up temp directories at ${TMP_DIR}"
+    rm -rf ${TMP_DIR}
+    if [ -e ${BASEDIR}/.installation_ok ];then
+        message "WARNING" "Previous successful installation found. NOT removing base dir at ${BASEDIR}"
+    else
+        message "INFO" "removing base dir at ${BASEDIR}"
+        rm -rf ${BASEDIR}
+    fi
+    exit 1
+}
+    
+#-----------------------------------------------------------------------------
+# Install
+#-----------------------------------------------------------------------------
+
+install() {
+    
+    message "INFO" "Starting GNU Health HMIS node ${GNUHEALTH_VERSION} installation..."
+
+    # (1) Check requirements.
+    check_requirements
+
+    # (2) Install directories.
+    install_directories
+
+    # (3) Install Python dependencies.
+    install_python_dependencies
+
+    # (4) Download Tryton modules.
+    install_tryton_modules
+
+    # (5) Install GNU HEALTH packages.
+    gnuhealth_packages
+
+    # (6) Apply Patches to Tryton Kernel
+    apply_patches
+
+    # (7) BASH Profile
+    bash_profile
+
+    # (7) Install startup script
+    startup_script
+    
+    # (8) Cleanup
+    cleanup
+}
+
+#-----------------------------------------------------------------------------
+# Parse command line
+#-----------------------------------------------------------------------------
+
+
+parse_command_line()
+{
+    if [ $# -eq 0 ]; then
+        help
+    fi
+    
+    case $1 in
+        version) show_version $@;;
+        update-deps) install_python_dependencies $@;;
+        install) install $@;;
+        help) help;;
+        *) echo $1: Unrecognized command; exit 1;;
+    esac
+}
+
+parse_command_line "$@"

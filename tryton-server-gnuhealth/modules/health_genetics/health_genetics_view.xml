@@ -1,0 +1,225 @@
+<?xml version="1.0"?>
+<tryton>
+    <data>
+
+<!-- Add Genetics icon -->
+
+        <record model="ir.ui.icon" id="gnuhealth_dna_icon">
+            <field name="name">icon-dna</field>
+            <field name="path">icons/dna.svg</field>
+        </record>
+
+        <menuitem name="Genetics" parent="health.gnuhealth_menu"
+            id="gnuhealth_genetics" icon="icon-dna"/>
+
+        <menuitem name="Genetics" parent="health.gnuhealth_conf_menu"
+            id="gnuhealth_conf_genetics" icon="icon-dna"/>
+
+
+<!-- Add other relevant icons -->
+
+        <record model="ir.ui.icon" id="gnuhealth_list_icon">
+            <field name="name">gnuhealth-list</field>
+            <field name="path">../health/icons/tryton-list.svg</field>
+        </record>
+
+<!-- Genetic conditions -->
+
+        <record model="ir.ui.view" id="gnuhealth_disease_gene_view">
+            <field name="model">gnuhealth.disease.gene</field>
+            <field name="type">form</field>
+            <field name="name">gnuhealth_disease_gene</field>
+        </record>
+
+        <record model="ir.ui.view" id="gnuhealth_disease_gene_tree">
+            <field name="model">gnuhealth.disease.gene</field>
+            <field name="type">tree</field>
+            <field name="name">gnuhealth_disease_gene_tree</field>
+        </record>
+
+        <record model="ir.action.act_window" id="gnuhealth_action_disease_gene">
+            <field name="name">Disease Genes</field>
+            <field name="res_model">gnuhealth.disease.gene</field>
+        </record>
+
+        <record model="ir.action.act_window.view" id="act_disease_gene_list_view">
+            <field name="sequence" eval="10"/>
+            <field name="view" ref="gnuhealth_disease_gene_tree"/>
+            <field name="act_window" ref="gnuhealth_action_disease_gene"/>
+        </record>
+        <record model="ir.action.act_window.view" id="act_disease_gene_form_view">
+            <field name="sequence" eval="20"/>
+            <field name="view" ref="gnuhealth_disease_gene_view"/>
+            <field name="act_window" ref="gnuhealth_action_disease_gene"/>
+        </record>
+
+        <menuitem parent="gnuhealth_conf_genetics"
+            action="gnuhealth_action_disease_gene"
+            id="gnuhealth_conf_disease_genes" icon="gnuhealth-list"/>
+
+<!-- Gene Variants-->
+
+        <record model="ir.ui.view" id="gnuhealth_gene_variant_view">
+            <field name="model">gnuhealth.gene.variant</field>
+            <field name="type">form</field>
+            <field name="name">gnuhealth_gene_variant</field>
+        </record>
+
+        <record model="ir.ui.view" id="gnuhealth_gene_variant_tree">
+            <field name="model">gnuhealth.gene.variant</field>
+            <field name="type">tree</field>
+            <field name="name">gnuhealth_gene_variant_tree</field>
+        </record>
+
+        <record model="ir.action.act_window" id="gnuhealth_action_gene_variant">
+            <field name="name">Natural Variants</field>
+            <field name="res_model">gnuhealth.gene.variant</field>
+        </record>
+
+        <record model="ir.action.act_window.view" id="act_gene_variant_list_view">
+            <field name="sequence" eval="10"/>
+            <field name="view" ref="gnuhealth_gene_variant_tree"/>
+            <field name="act_window" ref="gnuhealth_action_gene_variant"/>
+        </record>
+        <record model="ir.action.act_window.view" id="act_gene_variant_form_view">
+            <field name="sequence" eval="20"/>
+            <field name="view" ref="gnuhealth_gene_variant_view"/>
+            <field name="act_window" ref="gnuhealth_action_gene_variant"/>
+        </record>
+
+        <menuitem parent="gnuhealth_conf_genetics"
+            action="gnuhealth_action_gene_variant"
+            id="gnuhealth_conf_gene_variants" icon="gnuhealth-list"/>
+
+<!-- Gene Variant Phenotypes-->
+
+        <record model="ir.ui.view" id="gnuhealth_gene_variant_phenotype_view">
+            <field name="model">gnuhealth.gene.variant.phenotype</field>
+            <field name="type">form</field>
+            <field name="name">gnuhealth_gene_variant_phenotype</field>
+        </record>
+
+        <record model="ir.ui.view" id="gnuhealth_gene_variant_phenotype_tree">
+            <field name="model">gnuhealth.gene.variant.phenotype</field>
+            <field name="type">tree</field>
+            <field name="name">gnuhealth_gene_variant_phenotype_tree</field>
+        </record>
+
+        <record model="ir.action.act_window" id="gnuhealth_action_gene_variant_phenotype">
+            <field name="name">Variant Phenotypes</field>
+            <field name="res_model">gnuhealth.gene.variant.phenotype</field>
+        </record>
+
+        <record model="ir.action.act_window.view" id="act_gene_variant_phenotype_list_view">
+            <field name="sequence" eval="10"/>
+            <field name="view" ref="gnuhealth_gene_variant_phenotype_tree"/>
+            <field name="act_window" ref="gnuhealth_action_gene_variant_phenotype"/>
+        </record>
+        <record model="ir.action.act_window.view" id="act_gene_variant_phenotype_form_view">
+            <field name="sequence" eval="20"/>
+            <field name="view" ref="gnuhealth_gene_variant_phenotype_view"/>
+            <field name="act_window" ref="gnuhealth_action_gene_variant_phenotype"/>
+        </record>
+
+        <menuitem parent="gnuhealth_conf_genetics"
+            action="gnuhealth_action_gene_variant_phenotype"
+            id="gnuhealth_conf_gene_variant_phenotypes" icon="gnuhealth-list"/>
+
+
+<!-- Protein related Diseases-->
+
+        <record model="ir.ui.view" id="gnuhealth_protein_disease_view">
+            <field name="model">gnuhealth.protein.disease</field>
+            <field name="type">form</field>
+            <field name="name">gnuhealth_protein_disease</field>
+        </record>
+
+        <record model="ir.ui.view" id="gnuhealth_protein_disease_tree">
+            <field name="model">gnuhealth.protein.disease</field>
+            <field name="type">tree</field>
+            <field name="name">gnuhealth_protein_disease_tree</field>
+        </record>
+
+        <record model="ir.action.act_window" id="gnuhealth_action_protein_disease">
+            <field name="name">Protein related diseases</field>
+            <field name="res_model">gnuhealth.protein.disease</field>
+        </record>
+
+        <record model="ir.action.act_window.view" id="act_protein_disease_list_view">
+            <field name="sequence" eval="10"/>
+            <field name="view" ref="gnuhealth_protein_disease_tree"/>
+            <field name="act_window" ref="gnuhealth_action_protein_disease"/>
+        </record>
+        <record model="ir.action.act_window.view" id="act_protein_disease_form_view">
+            <field name="sequence" eval="20"/>
+            <field name="view" ref="gnuhealth_protein_disease_view"/>
+            <field name="act_window" ref="gnuhealth_action_protein_disease"/>
+        </record>
+
+        <menuitem parent="gnuhealth_conf_genetics"
+            action="gnuhealth_action_protein_disease"
+            id="gnuhealth_conf_protein_diseases" icon="gnuhealth-list"/>
+
+
+<!-- Patient Genetic Risk -->
+
+        <record model="ir.ui.view" id="gnuhealth_genetic_risk_view">
+            <field name="model">gnuhealth.patient.genetic.risk</field>
+            <field name="type">form</field>
+            <field name="name">gnuhealth_genetic_risk</field>
+        </record>
+
+        <record model="ir.ui.view" id="gnuhealth_genetic_risk_tree">
+            <field name="model">gnuhealth.patient.genetic.risk</field>
+            <field name="type">tree</field>
+            <field name="name">gnuhealth_genetic_risk_tree</field>
+        </record>
+
+        <record model="ir.action.act_window" id="gnuhealth_action_patient_genetics">
+            <field name="name">Person genetic information</field>
+            <field name="res_model">gnuhealth.patient.genetic.risk</field>
+        </record>
+
+        <record model="ir.action.act_window.view" id="act_patient_genetics_list_view">
+            <field name="sequence" eval="10"/>
+            <field name="view" ref="gnuhealth_genetic_risk_tree"/>
+            <field name="act_window" ref="gnuhealth_action_patient_genetics"/>
+        </record>
+        <record model="ir.action.act_window.view" id="act_patient_genetics_form_view">
+            <field name="sequence" eval="20"/>
+            <field name="view" ref="gnuhealth_genetic_risk_view"/>
+            <field name="act_window" ref="gnuhealth_action_patient_genetics"/>
+        </record>
+
+        <menuitem parent="health.gnuhealth_menu"
+            name="Genetics" 
+            id="gnuhealth_genetics" icon="icon-dna"/>
+
+        <menuitem parent="gnuhealth_genetics"
+            action="gnuhealth_action_patient_genetics"
+            id="gnuhealth_patient_genetics" icon="gnuhealth-list"/>
+
+<!-- Family Diseases -->
+
+        <record model="ir.ui.view" id="gnuhealth_family_diseases_view">
+            <field name="model">gnuhealth.patient.family.diseases</field>
+            <field name="type">form</field>
+            <field name="name">gnuhealth_family_diseases</field>
+        </record>
+
+        <record model="ir.ui.view" id="gnuhealth_family_diseases_tree">
+            <field name="model">gnuhealth.patient.family.diseases</field>
+            <field name="type">tree</field>
+            <field name="name">gnuhealth_family_diseases_tree</field>
+        </record>
+
+<!-- Include Family History and Genetic Risks on the patient chart -->
+
+        <record model="ir.ui.view" id="gnuhealth_patient_view">
+            <field name="model">gnuhealth.patient</field>
+            <field name="inherit" ref="health.gnuhealth_patient_view_form" />
+            <field name="name">gnuhealth_patient</field>
+        </record>
+
+    </data>
+</tryton>

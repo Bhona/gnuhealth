@@ -1,0 +1,44 @@
+#
+msgid ""
+msgstr ""
+"Content-Type: text/plain; charset=UTF-8\n"
+"Project-Id-Version: health_webdav 3_server\n"
+"PO-Revision-Date: 2019-10-26 11:47+0800\n"
+"Last-Translator:  <tumashu@163.com>\n"
+"Language-Team: Chinese (simplified)\n"
+"Language: zh_CN\n"
+"MIME-Version: 1.0\n"
+"X-Pootle-Path: /zh_CN/GNUHEALTH/health_webdav3_server/locale/zh_CN.po\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+msgctxt "model:ir.action,name:act_collection_list"
+msgid "Collections"
+msgstr "收藏"
+
+msgctxt "model:ir.action,name:act_collection_tree"
+msgid "Collections"
+msgstr "收藏"
+
+msgctxt "model:ir.action,name:act_share_list"
+msgid "Shares"
+msgstr "共享"
+
+msgctxt "model:ir.ui.menu,name:menu_collection_list"
+msgid "Collections"
+msgstr "收藏"
+
+msgctxt "model:ir.ui.menu,name:menu_collection_tree"
+msgid "Collections"
+msgstr "收藏"
+
+msgctxt "model:ir.ui.menu,name:menu_share_list"
+msgid "Shares"
+msgstr "共享"
+
+msgctxt "model:ir.ui.menu,name:menu_webdav"
+msgid "WebDAV"
+msgstr "WebDAV"
+
+msgctxt "view:ir.attachment:"
+msgid "WebDAV"
+msgstr "WebDAV"

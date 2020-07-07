@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<tree>
+    <field name="patient" expand="1"/>
+    <field name="pathology"/>
+    <field name="contact" expand="1"/>
+    <field name="contact_date" string="Date" widget="date"/>
+    <field name="operational_sector" expand="1"/>
+    <field name="exposure_risk" expand="1"/>
+    <field name="exposure_time"/>
+    <field name="context"/>
+    <field name="status" expand="1"/>
+    <field name="comments"/>
+</tree>

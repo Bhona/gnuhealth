@@ -1,0 +1,4 @@
+
+    [trytond.modules]
+    purchase_request = trytond.modules.purchase_request
+    

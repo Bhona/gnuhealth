@@ -1,0 +1,3 @@
+trytond_purchase<5.1,>=5.0
+trytond_product<5.1,>=5.0
+trytond<5.1,>=5.0

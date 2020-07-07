@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+<form>
+    <label name="patient"/>
+    <field name="patient"/>
+    <label name="pathology"/>
+    <field name="pathology"/>
+    <newline/>
+    <label name="contact"/>
+    <field name="contact"/>
+    <label name="contact_date"/>
+    <field name="contact_date"/>
+    <newline/>
+    <label name="du"/>
+    <field name="du"/>
+    <label name="operational_sector"/>
+    <field name="operational_sector"/>
+    <newline/>
+    <label name="exposure_risk"/>
+    <field name="exposure_risk"/>
+    <label name="context"/>
+    <field name="context"/>
+    <newline/>
+    <label name="status"/>
+    <field name="status"/>
+    <newline/>
+    <separator id="sep_tracing_comments" string="Extra Information" colspan="4"/>
+    <newline/>
+    <field name="comments" colspan="4"/>
+</form>

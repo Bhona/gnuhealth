@@ -1,0 +1,4 @@
+trytond<5.1,>=5.0
+
+[GeoNames]
+proteus<5.1,>=5.0

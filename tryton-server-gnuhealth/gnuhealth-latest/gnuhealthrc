@@ -1,0 +1,50 @@
+# GNU Health BASH environment
+# 2013-2018 Luis Falcon <falcon@gnuhealth.org>
+
+# File Editor 
+
+export EDITOR=vi
+
+GNUHEALTH_DIR="${HOME}/gnuhealth"
+
+if ! type $EDITOR >/dev/null ; then
+    echo "$EDITOR not found" 
+fi
+
+# Get the most current Tryton server version
+# It should only be one trytond, but just in case..
+TRYTOND=`ls -1d ${GNUHEALTH_DIR}/tryton/server/trytond-* | egrep -o "trytond-[0-9\.]+.[0-9\.]+.[0-9\.]+" | sort -V | tail -1`
+
+export TRYTON_VERSION=`echo $TRYTOND | cut -d'-' -f2`
+
+# Add PYTHONPATH environment variable 
+export PYTHONPATH=${GNUHEALTH_DIR}/tryton/server/${TRYTOND}:${GNUHEALTH_DIR}/tryton/server/config
+
+# Include local directory (gunicorn and other python executables)
+export PATH=$PATH:$HOME/.local/bin
+
+# Add Tryton server configuration file
+export TRYTOND_CONFIG=${GNUHEALTH_DIR}/tryton/server/config/trytond.conf
+
+# Aliases
+alias cdlogs='cd ${GNUHEALTH_DIR}/logs'
+alias cdexe='cd ${GNUHEALTH_DIR}/tryton/server/${TRYTOND}/bin'
+alias cdutil='cd ${GNUHEALTH_DIR}/tryton/server/util'
+alias cdconf='cd ${GNUHEALTH_DIR}/tryton/server/config'
+alias cdmods='cd ${GNUHEALTH_DIR}/tryton/server/modules'
+alias editconf='${EDITOR} ${TRYTOND_CONFIG}'
+
+# Protect from accidental deletions 
+alias rm='rm -i'
+alias mv='mv -i'
+alias cp='cp -i'
+
+#GNU HEALTH version
+export GNUHEALTH_VERSION=`cat ${GNUHEALTH_DIR}/version`
+
+# Commented to be compatible with FreeBSD
+# alias ls='ls --color=auto'
+
+#Prompt
+
+PS1="\[\e[32;2m\]\u@\h:\[\e[30;0m\]\w $ \[\e[0m\]"

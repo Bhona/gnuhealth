@@ -1,0 +1,7 @@
+python-dateutil
+python-sql>=0.7
+simpleeval
+trytond_company<5.1,>=5.0
+trytond_currency<5.1,>=5.0
+trytond_party<5.1,>=5.0
+trytond<5.1,>=5.0
