@@ -1,0 +1,30 @@
+<form>
+    <label name="name"/>
+    <field name="name"/>
+    <label name="lastname"/>
+    <field name="lastname"/>
+    <label name="pid"/>
+    <field name="pid"/>
+    <label name="dob"/>
+    <field name="dob"/>
+    <label name="sex"/>
+    <field name="sex"/>
+    <newline/>
+    <label name="weight"/>
+    <field name="weight"/>
+    <label name="height"/>
+    <field name="height"/>
+    <label name="bmi"/>
+    <field name="bmi" readonly="1"/>
+    <newline/>
+    <label name="donate"/>
+    <field name="donate"/>
+    <label name="country"/>
+    <field name="country"/>
+    <label name="notes"/>
+    <field name="notes"/>
+</form>
+
+
+
+
