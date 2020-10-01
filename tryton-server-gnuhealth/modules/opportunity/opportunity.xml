@@ -1,0 +1,38 @@
+<?xml version="1.0"?>
+
+<tryton>
+  <data>
+    
+     <record model="ir.ui.view" id="opportunity_view_list">
+        <field name="model">training.opportunity</field>
+        <field name="type">tree</field>
+        <field name="name">opportunity_list</field>
+      </record>
+
+      <record model="ir.ui.view"  id="opportunity_view_form">
+   	    <field name="model">training.opportunity</field>
+   	    <field name="type">form</field>
+   	    <field name="name">opportunity_form</field>
+    </record>
+
+    <record model="ir.action.act_window" id="act_opportunity_open">
+	    <field name="name">opportunities</field>
+	    <field name="res_model">training.opportunity</field>
+    </record>
+
+    <record model="ir.action.act_window.view" id="act_opportunity_open_view1">
+        <field name="sequence" eval="10"/>
+        <field name="view" ref="opportunity_view_list"/>
+        <field name="act_window" ref="act_opportunity_open"/>
+    </record>
+
+    <record model="ir.action.act_window.view" id="act_opportunity_open_view2">
+        <field name="sequence" eval="20"/>
+        <field name="view" ref="opportunity_view_form"/>
+        <field name="act_window" ref="act_opportunity_open"/>
+    </record>
+    
+  </data>
+</tryton>
+
+
