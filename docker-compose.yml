@@ -14,14 +14,14 @@ services:
       - gnuhealth    
 
   tryton:
-    image: bh0na/tryton-server-gnuhealth
+    image: bh0na/tryton-server-gnuhealth:dev
     # build: 
     #   context: ./tryton-server-gnuhealth
     #   dockerfile: Dockerfile
     container_name: tryton-server-gnuhealth
     volumes:
       - ./tryton-server-gnuhealth/gnuhealth-latest:/home/gnuhealth/gnuhealth-latest
-      #- ./tryton-server-gnuhealth/modules:/home/gnuhealth/gnuhealth/tryton/server/modules
+      - ./tryton-server-gnuhealth/modules:/home/gnuhealth/gnuhealth/tryton/server/modules
     environment:
       - DB_USER=gnuhealth
       - DB_PASSWORD=jkUbZGvFNeugk

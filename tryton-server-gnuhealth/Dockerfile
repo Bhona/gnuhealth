@@ -70,5 +70,6 @@ RUN sed -E -i "s/^listen = \*:8080/listen = 0.0.0.0:8080/g" $HOME/gnuhealth/tryt
 #Copy custom gnuhealthrc which contains Docker ENV Variables.
 COPY gnuhealthrc $HOME/.gnuhealthrc
 COPY gnuhealth_log.conf $HOME/gnuhealth/tryton/server/config/gnuhealth_log.conf
+# COPY ./tryton-server-gnuhealth/modules/opportunity $HOME/gnuhealth/tryton/server/modules
 ENTRYPOINT ["/home/gnuhealth/start_gnuhealth.sh"]
 CMD ["-c /home/gnuhealth/gnuhealth/tryton/server/config/trytond.conf --logconf /home/gnuhealth/gnuhealth/tryton/server/config/gnuhealth_log.conf"]
